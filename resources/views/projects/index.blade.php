@@ -6,7 +6,9 @@
             @foreach ($projects as $project)
                 <div>
                     <img src="{{ asset('storage/images/' . $project->image) }}" width="200">
-                    <h3>{{ $project->title }}</h3>
+                    <a href="{{ route('projects.show', $project->id) }}">
+                        <h3>{{ $project->title }}</h3>
+                    </a>
                     <a href="{{ route('projects.edit', $project->id) }}">Edit</a>
                     <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
                         @csrf

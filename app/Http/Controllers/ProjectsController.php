@@ -29,13 +29,18 @@ class ProjectsController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
         $imageName = time() . '.' . $request->image->extension();
         $request->image->storeAs('images', $imageName, 'public');
 
-
         $newProject = new Project;
-        $newProject->title = $request->title;
-        $newProject->description = $request->description;
+        $newProject->title = $validated['title'];
+        $newProject->description = $validated['description'];
         $newProject->image = $imageName;
         $newProject->save();
 
@@ -47,7 +52,8 @@ class ProjectsController extends Controller
      */
     public function show(string $id)
     {
-        return view('projects.show');
+        $project = Project::findOrFail($id);
+        return view('projects.show')->with('project', $project);
     }
 
     /**

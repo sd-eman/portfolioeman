@@ -10,10 +10,15 @@ class ProjectsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $projects = Project::all();
-        return view('projects.index')->with('projects', $projects);
+        $category = $request->query('category');
+
+        $projects = $category
+            ? Project::where('category', $category)->get()
+            : Project::all();
+
+        return view('projects.index', compact('projects', 'category'));
     }
 
     /**
@@ -33,6 +38,7 @@ class ProjectsController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category' => 'required|string',
         ]);
 
         $imageName = time() . '.' . $request->image->extension();
@@ -74,6 +80,7 @@ class ProjectsController extends Controller
             'title' => 'required|string',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category' => 'required|string',
         ]);
         $project = Project::findOrFail($id);
         $project->update($validated);

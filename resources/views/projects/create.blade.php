@@ -21,6 +21,16 @@
                 <label for="image">Image: </label>
                 <input type="file" name="image">
                 <br>
+                <label for="category">Category:</label>
+                <select name="category">
+                    <option value="web" {{ old('category', $project->category ?? '') == 'web' ? 'selected' : '' }}>
+                        Web development</option>
+                    <option value="app" {{ old('category', $project->category ?? '') == 'app' ? 'selected' : '' }}>
+                        Applications</option>
+                    <option value="uiux" {{ old('category', $project->category ?? '') == 'uiux' ? 'selected' : '' }}>
+                        UI/UX</option>
+                </select>
+                <br>
                 <input type="submit" value="Save">
 
             </form>

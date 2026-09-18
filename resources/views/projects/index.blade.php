@@ -1,19 +1,34 @@
 <x-layout title="Projects">
-    <h1>Projects</h1>
-    <div>
-        <a href="{{ route('projects.create') }}"> + Project toevoegen</a>
-        <div>
+    <div class="mr-12 ml-12">
+        <h2 class="text-white/70 text-3xl text-center font-bold mt-2 mb-4">Projects</h2>
+        <a href="{{ route('projects.create') }}">+ Project toevoegen</a>
+
+        <!-- Tabs: OUTSIDE and ABOVE the loop, appears once -->
+        <div class="flex gap-4 mb-6">
+            <a href="{{ route('projects.index') }}" class="{{ !$category ? 'text-white' : '' }}">All</a>
+            <a href="{{ route('projects.index', ['category' => 'app']) }}"
+                class="{{ $category == 'app' ? 'text-white' : '' }}">Applications</a>
+            <a href="{{ route('projects.index', ['category' => 'web']) }}"
+                class="{{ $category == 'web' ? 'text-white' : '' }}">Web development</a>
+            <a href="{{ route('projects.index', ['category' => 'uiux']) }}"
+                class="{{ $category == 'uiux' ? 'text-white' : '' }}">UI/UX</a>
+        </div>
+
+        <!-- Grid of project cards: the loop -->
+        <div class="grid grid-cols-3 gap-6">
             @foreach ($projects as $project)
-                <div>
-                    <img src="{{ asset('storage/images/' . $project->image) }}" width="200">
-                    <a href="{{ route('projects.show', $project->id) }}">
-                        <h3>{{ $project->title }}</h3>
-                    </a>
-                    <a href="{{ route('projects.edit', $project->id) }}">Edit</a>
-                    <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
-                        @csrf
-                        @method('delete')
-                        <input type="submit" value="Delete">
+                <div class="bg-white/70 rounded-2xl p-4">
+                    <img src="{{ asset('storage/images/' . $project->image) }}" class="rounded-lg mb-2">
+                    <h3 class="font-bold">{{ $project->title }}</h3>
+                    <p class="text-sm text-gray-500">{{ ucfirst($project->category) }}</p>
+
+                    <div class="flex flex-row justify-evenly">
+                        <a href="{{ route('projects.edit', $project->id) }}" class="bg-black/90 text-white p-2 rounded-xl">Edit</a>
+                        <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <input type="submit" value="Delete" class="bg-rose-950 text-white p-2 rounded-xl">
+                    </div>
                     </form>
                 </div>
             @endforeach

@@ -25,10 +25,18 @@
                 <img src="{{ asset('storage/images/' . $project->image) }}" width="150">
             @endif
             <br>
-
             <label for="image">Change image: </label>
             <input type="file" name="image">
             <br>
+            <label for="category">Category:</label>
+            <select name="category">
+                <option value="web" {{ old('category', $project->category ?? '') == 'web' ? 'selected' : '' }}>Web
+                    development</option>
+                <option value="app" {{ old('category', $project->category ?? '') == 'app' ? 'selected' : '' }}>
+                    Applications</option>
+                <option value="uiux" {{ old('category', $project->category ?? '') == 'uiux' ? 'selected' : '' }}>UI/UX
+                </option>
+            </select>
             <input type="submit" value="Save">
 
         </form>

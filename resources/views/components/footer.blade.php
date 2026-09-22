@@ -1,4 +1,4 @@
-<footer class="bg-white/70 m-10 p-5 rounded-xl">
+<footer class="bg-white/70 m-10 p-5 rounded-xl ">
     <div class="flex flex-row justify-evenly font-serif items-center">
         <h1 class="flex flex-start text-xl text-left pr-50px">Eman Irfan</h1>
         <div>

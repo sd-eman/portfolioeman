@@ -9,7 +9,8 @@
     @vite(['/resources/css/app.css', '/resources/js/app.js'])
 </head>
 
-<body class="bg-rose-950 min-h-screen flex flex-col">
+{{-- bg-rose-950 --}}
+<body class=" bg-rose-950 min-h-screen flex flex-col">
     <x-header />
 
     <main class="max-w-[90%] lg:max-w-[1200px] mx-auto px-4">

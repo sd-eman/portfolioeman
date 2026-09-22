@@ -1,5 +1,5 @@
 <x-layout title="Portfolio-Eman">
-    <div class="grid grid-cols-2 gap-5 py-5">
+    <div class="grid grid-cols-2 gap-5 py-5 mr-12 ml-12">
         <div class="bg-white/80 p-5 rounded-2xl">
             <h2>About me</h2>
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the

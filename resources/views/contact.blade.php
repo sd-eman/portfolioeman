@@ -15,11 +15,11 @@
                 <h1 class="text-black text-3xl text-center font-bold mt-2">Contact Formulier</h1>
                 <div class="flex flex-col items-left">
                     <label for="name" class="p-2 font-semibold text-l">Naam:</label>
-                    <input class="rounded-2xl" type="text" name="name" required>
+                    <input class="rounded-2xl" type="text" name="name" placeholder="Schrijf je naam hier" required>
                 </div>
                 <div class="flex flex-col items-left">
                     <label for="email" class="p-2 font-semibold text-l">Email:</label>
-                    <input class="rounded-2xl" type="email" name="email" required>
+                    <input class="rounded-2xl" type="email" name="email" placeholder="Schrijf je email hier" required>
                 </div>
                 <div class="flex items-left flex-col">
                     <label for="content" class="p-2 font-semibold text-l">Bericht:</label>

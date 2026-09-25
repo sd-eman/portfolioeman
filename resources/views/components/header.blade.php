@@ -5,7 +5,7 @@
         <div>
             <nav class="flex justify-evenly items-center text-xl text-center">
                 <a href="{{ route('homepage') }}" class="bg-black/90 text-white p-3 rounded-3xl">About</a>
-                <a href="{{ route('projects.index') }}" class="bg-black/90 text-white p-3 rounded-3xl">Projects</a>
+                <a href="{{ route('projects.index') }}" class="bg-black/90 text-white p-3 rounded-3xl">Projecten</a>
                 <a href="{{ route('contact') }}" class="bg-black/90 text-white p-3 rounded-3xl">Contact</a>
             </nav>
         </div>
